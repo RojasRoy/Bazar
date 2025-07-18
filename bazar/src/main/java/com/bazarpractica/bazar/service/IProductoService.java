@@ -15,4 +15,6 @@ public interface IProductoService {
     public Producto findProducto(Long codigo_producto);
 
     public void updateProducto(Producto producto);
+
+    public List<Producto> getProdFaltaStock();
 }

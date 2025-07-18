@@ -39,4 +39,9 @@ public class ProductoService implements IProductoService {
     public void updateProducto(Producto producto) {
         this.saveProducto(producto);
     }
+
+    @Override
+    public List<Producto> getProdFaltaStock() {
+        return prodRepo.findByCantidadDisponibleLessThan(5);
+    }
 }

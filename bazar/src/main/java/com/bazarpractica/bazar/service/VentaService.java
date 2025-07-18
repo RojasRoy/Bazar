@@ -32,7 +32,7 @@ public class VentaService implements IVentaService {
     @Override
     public Venta findVenta(Long codigo_venta) {
         Venta venta = ventaRepo.findById(codigo_venta).orElse(null);
-        return null;
+        return venta;
     }
 
     @Override

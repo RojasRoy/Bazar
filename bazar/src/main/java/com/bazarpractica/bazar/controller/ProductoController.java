@@ -42,5 +42,10 @@ public class ProductoController {
         return prodServi.findProducto(producto.getCodigo_producto());
     }
 
+    @GetMapping("/productos/falta_stock")
+    public List<Producto> getProductosConFaltaStock() {
+        return prodServi.getProdFaltaStock();
+    }
+
 
 }
