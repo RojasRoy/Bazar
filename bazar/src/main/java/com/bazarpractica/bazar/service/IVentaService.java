@@ -1,7 +1,9 @@
 package com.bazarpractica.bazar.service;
 
+import com.bazarpractica.bazar.DTO.VentasDiaDTo;
 import com.bazarpractica.bazar.model.Venta;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IVentaService {
@@ -15,5 +17,7 @@ public interface IVentaService {
     public Venta findVenta(Long codigo_venta);
 
     public void updateVenta(Venta venta);
+
+    public VentasDiaDTo getVentaDia(LocalDate fecha);
 
 }

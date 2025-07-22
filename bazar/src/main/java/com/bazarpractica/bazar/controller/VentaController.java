@@ -1,10 +1,12 @@
 package com.bazarpractica.bazar.controller;
 
+import com.bazarpractica.bazar.DTO.VentasDiaDTo;
 import com.bazarpractica.bazar.model.Venta;
 import com.bazarpractica.bazar.service.IVentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -21,6 +23,12 @@ public class VentaController {
     @GetMapping("/ventas/{codigo_venta}")
     public Venta findVenta(@PathVariable Long codigo_venta){
         return ventaServi.findVenta(codigo_venta);
+    }
+
+    @GetMapping("/ventas/fecha/{fechaVenta}")
+    public VentasDiaDTo getVentasDia(@PathVariable ("fechaVenta") String fecha_venta){
+        LocalDate fecha = LocalDate.parse(fecha_venta);
+        return ventaServi.getVentaDia(fecha);
     }
 
     @PostMapping("/ventas/crear")
