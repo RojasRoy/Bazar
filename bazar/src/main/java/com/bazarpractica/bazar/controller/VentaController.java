@@ -1,6 +1,7 @@
 package com.bazarpractica.bazar.controller;
 
 import com.bazarpractica.bazar.DTO.VentasDiaDTo;
+import com.bazarpractica.bazar.DTO.VentasMayorDTO;
 import com.bazarpractica.bazar.model.Venta;
 import com.bazarpractica.bazar.service.IVentaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,11 @@ public class VentaController {
     public VentasDiaDTo getVentasDia(@PathVariable ("fechaVenta") String fecha_venta){
         LocalDate fecha = LocalDate.parse(fecha_venta);
         return ventaServi.getVentaDia(fecha);
+    }
+
+    @GetMapping("/ventas/mayor_venta")
+    public VentasMayorDTO getVentaMayor() {
+        return ventaServi.getVentaConMayorMonto();
     }
 
     @PostMapping("/ventas/crear")

@@ -1,12 +1,15 @@
 package com.bazarpractica.bazar.service;
 
 import com.bazarpractica.bazar.DTO.VentasDiaDTo;
+import com.bazarpractica.bazar.DTO.VentasMayorDTO;
 import com.bazarpractica.bazar.model.Venta;
 import com.bazarpractica.bazar.repository.IVentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -52,5 +55,23 @@ public class VentaService implements IVentaService {
         }
 
         return new VentasDiaDTo(total, ventaDia.size());
+    }
+
+    @Override
+    public VentasMayorDTO getVentaConMayorMonto() {
+        List<Venta> listaVentas = ventaRepo.findAll();
+
+        if (listaVentas.isEmpty()) return null;
+
+        Venta mayorVenta = Collections.max(listaVentas, Comparator.comparing(Venta::getTotal));
+
+        VentasMayorDTO dto = new VentasMayorDTO();
+        dto.setCodigo_venta(mayorVenta.getCodigo_venta());
+        dto.setTotal(mayorVenta.getTotal());
+        dto.setCantidadProductos(mayorVenta.getListaProductos().size());
+        dto.setNombreCliente(mayorVenta.getUnCliente().getNombre());
+        dto.setApellidoCliente(mayorVenta.getUnCliente().getApellido());
+
+        return dto;
     }
 }

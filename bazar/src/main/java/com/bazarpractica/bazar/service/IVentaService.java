@@ -1,6 +1,7 @@
 package com.bazarpractica.bazar.service;
 
 import com.bazarpractica.bazar.DTO.VentasDiaDTo;
+import com.bazarpractica.bazar.DTO.VentasMayorDTO;
 import com.bazarpractica.bazar.model.Venta;
 
 import java.time.LocalDate;
@@ -19,5 +20,7 @@ public interface IVentaService {
     public void updateVenta(Venta venta);
 
     public VentasDiaDTo getVentaDia(LocalDate fecha);
+
+    public VentasMayorDTO getVentaConMayorMonto();
 
 }
