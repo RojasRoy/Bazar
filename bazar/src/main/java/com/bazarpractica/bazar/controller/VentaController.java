@@ -21,9 +21,9 @@ public class VentaController {
         return ventaServi.getVenta();
     }
 
-    @GetMapping("/ventas/{codigo_venta}")
-    public Venta findVenta(@PathVariable Long codigo_venta){
-        return ventaServi.findVenta(codigo_venta);
+    @GetMapping("/ventas/{codigoVenta}")
+    public Venta findVenta(@PathVariable Long codigoVenta){
+        return ventaServi.findVenta(codigoVenta);
     }
 
     @GetMapping("/ventas/fecha/{fechaVenta}")
@@ -43,16 +43,16 @@ public class VentaController {
         return "success create venta";
     }
 
-    @DeleteMapping("/ventas/eliminar/{codigo_venta}")
-    public String eliminarVenta(@PathVariable Long codigo_venta){
-        ventaServi.deleteVenta(codigo_venta);
+    @DeleteMapping("/ventas/eliminar/{codigoVenta}")
+    public String eliminarVenta(@PathVariable Long codigoVenta){
+        ventaServi.deleteVenta(codigoVenta);
         return "success delete venta";
     }
 
-    @PutMapping("/ventas/editar/{codigo_venta}")
+    @PutMapping("/ventas/editar/{codigoVenta}")
     public Venta editarVenta(@RequestBody Venta venta){
         ventaServi.updateVenta(venta);
-        return ventaServi.findVenta(venta.getCodigo_venta());
+        return ventaServi.findVenta(venta.getCodigoVenta());
     }
 
 }

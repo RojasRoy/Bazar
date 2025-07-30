@@ -18,9 +18,9 @@ public class ClienteController {
         return cliServi.getCliente();
     }
 
-    @GetMapping("/clientes/{id_cliente}")
-    public Cliente findCliente(@PathVariable Long id_cliente){
-        return cliServi.findCliente(id_cliente);
+    @GetMapping("/clientes/{idCliente}")
+    public Cliente findCliente(@PathVariable Long idCliente){
+        return cliServi.findCliente(idCliente);
     }
 
 
@@ -31,16 +31,16 @@ public class ClienteController {
         return "success create cliente";
     }
 
-    @DeleteMapping("/clientes/eliminar/{id_cliente}")
-    public String eliminarCliente(@PathVariable Long id_cliente){
-        cliServi.deleteCliente(id_cliente);
+    @DeleteMapping("/clientes/eliminar/{idCliente}")
+    public String eliminarCliente(@PathVariable Long idCliente){
+        cliServi.deleteCliente(idCliente);
         return "success delete cliente";
     }
 
     @PutMapping("/clientes/editar/{id_cliente}")
     public Cliente editarCliente(@RequestBody Cliente cliente){
         cliServi.updateCliente(cliente);
-        return cliServi.findCliente(cliente.getId_cliente());
+        return cliServi.findCliente(cliente.getIdCliente());
     }
 
 

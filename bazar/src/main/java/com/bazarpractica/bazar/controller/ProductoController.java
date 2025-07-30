@@ -19,9 +19,9 @@ public class ProductoController {
         return prodServi.getProducto();
     }
 
-    @GetMapping("/productos/{codigo_producto}")
-    public Producto findProducto(@PathVariable Long codigo_producto){
-        return prodServi.findProducto(codigo_producto);
+    @GetMapping("/productos/{codigoProducto}")
+    public Producto findProducto(@PathVariable Long codigoProducto){
+        return prodServi.findProducto(codigoProducto);
     }
 
     @PostMapping("/productos/crear")
@@ -30,16 +30,16 @@ public class ProductoController {
         return "success create producto";
     }
 
-    @DeleteMapping("/productos/eliminar/{codigo_producto}")
-    public String eliminarProducto(@PathVariable Long codigo_producto){
-        prodServi.deleteProducto(codigo_producto);
+    @DeleteMapping("/productos/eliminar/{codigoProducto}")
+    public String eliminarProducto(@PathVariable Long codigoProducto){
+        prodServi.deleteProducto(codigoProducto);
         return "success delete producto";
     }
 
-    @PutMapping("/productos/editar/{codigo_producto}")
+    @PutMapping("/productos/editar/{codigoProducto}")
     public Producto editarProducto(@RequestBody Producto producto){
         prodServi.updateProducto(producto);
-        return prodServi.findProducto(producto.getCodigo_producto());
+        return prodServi.findProducto(producto.getCodigoProducto());
     }
 
     @GetMapping("/productos/falta_stock")

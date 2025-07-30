@@ -66,7 +66,7 @@ public class VentaService implements IVentaService {
         Venta mayorVenta = Collections.max(listaVentas, Comparator.comparing(Venta::getTotal));
 
         VentasMayorDTO dto = new VentasMayorDTO();
-        dto.setCodigo_venta(mayorVenta.getCodigo_venta());
+        dto.setCodigo_venta(mayorVenta.getCodigoVenta());
         dto.setTotal(mayorVenta.getTotal());
         dto.setCantidadProductos(mayorVenta.getListaProductos().size());
         dto.setNombreCliente(mayorVenta.getUnCliente().getNombre());

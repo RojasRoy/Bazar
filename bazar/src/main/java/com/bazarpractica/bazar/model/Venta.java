@@ -1,19 +1,18 @@
 package com.bazarpractica.bazar.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Getter @Setter
+
 @Entity
 public class Venta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codigo_venta;
+    private Long codigoVenta;
     private LocalDate fechaVenta;
     private double total;
 
@@ -32,13 +31,51 @@ public class Venta {
     public Venta() {
     }
 
-    public Venta(Long codigo_venta, LocalDate fechaVenta, double total, List<Producto> listaProductos, Cliente unCliente) {
-        this.codigo_venta = codigo_venta;
+    public Venta(Long codigoVenta, LocalDate fechaVenta, double total, List<Producto> listaProductos, Cliente unCliente) {
+        this.codigoVenta = codigoVenta;
         this.fechaVenta = fechaVenta;
         this.total = total;
         this.listaProductos = listaProductos;
         this.unCliente = unCliente;
     }
 
+    public Long getCodigoVenta() {
+        return codigoVenta;
+    }
 
+    public void setCodigoVenta(Long codigoVenta) {
+        this.codigoVenta = codigoVenta;
+    }
+
+    public LocalDate getFechaVenta() {
+        return fechaVenta;
+    }
+
+    public void setFechaVenta(LocalDate fechaVenta) {
+        this.fechaVenta = fechaVenta;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public List<Producto> getListaProductos() {
+        return listaProductos;
+    }
+
+    public void setListaProductos(List<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
+    }
+
+    public Cliente getUnCliente() {
+        return unCliente;
+    }
+
+    public void setUnCliente(Cliente unCliente) {
+        this.unCliente = unCliente;
+    }
 }

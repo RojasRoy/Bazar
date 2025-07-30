@@ -1,9 +1,6 @@
 package com.bazarpractica.bazar.DTO;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter @Setter
 public class VentasMayorDTO {
 
     private Long codigo_venta;
@@ -19,6 +16,46 @@ public class VentasMayorDTO {
         this.total = total;
         this.cantidadProductos = cantidadProductos;
         this.nombreCliente = nombreCliente;
+        this.apellidoCliente = apellidoCliente;
+    }
+
+    public Long getCodigo_venta() {
+        return codigo_venta;
+    }
+
+    public void setCodigo_venta(Long codigo_venta) {
+        this.codigo_venta = codigo_venta;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public int getCantidadProductos() {
+        return cantidadProductos;
+    }
+
+    public void setCantidadProductos(int cantidadProductos) {
+        this.cantidadProductos = cantidadProductos;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public String getApellidoCliente() {
+        return apellidoCliente;
+    }
+
+    public void setApellidoCliente(String apellidoCliente) {
         this.apellidoCliente = apellidoCliente;
     }
 }
