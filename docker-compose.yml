@@ -3,7 +3,7 @@ version: '3.8'
 services:
   app_bazar:
     build: 
-      context: .
+      context: ./bazar
       dockerfile: Dockerfile
     container_name: bazar_app
     ports:
@@ -21,7 +21,7 @@ services:
     image: mysql:8.0
     container_name: bazar_db
     ports:
-      - "3306:3306"
+      - "3311:3306"
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: bazar
