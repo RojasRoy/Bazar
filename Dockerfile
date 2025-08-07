@@ -1,12 +1,11 @@
-# Etapa de construcción
-FROM maven:3.8.5-openjdk-17 AS build
+FROM maven:3.9.6-eclipse-temurin-17-alpine AS build
 WORKDIR /app
-COPY . .
+COPY ./bazar /app
 RUN mvn clean package -DskipTests
 
-# Etapa de ejecución con Amazon Corretto
-FROM amazoncorretto:17-alpine-jdk
+# Etapa de ejecución
+FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
-COPY --from=build /app/target/*.jar app_bazar.jar
+COPY --from=build /app/target/*.jar appbazar.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app_bazar.jar"]
+ENTRYPOINT ["java", "-jar", "appbazar.jar"]
