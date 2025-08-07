@@ -1,6 +1,6 @@
 FROM maven:3.9.6-eclipse-temurin-17-alpine AS build
 WORKDIR /app
-COPY ./bazar /app
+COPY . /app
 RUN mvn clean package -DskipTests
 
 # Etapa de ejecución
